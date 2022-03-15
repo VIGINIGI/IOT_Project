@@ -67,23 +67,22 @@ class _MyHomePageState extends State<MyHomePage> {
   color(dist, rate) {
     print(dist);
     print(rate);
-    if (dist>=100) {
+    if (dist >= 100) {
       //logic for not overflowing
-      if (rate<= 0 && dist>110) {
+      if (rate <= 0 && dist > 110) {
         return Color.fromARGB(255, 248, 130, 169);
-      } else if(rate>0 && rate<2 && dist>100 && dist<110){
+      } else if (rate > 0 && rate < 2 && dist > 100 && dist < 110) {
         return Color.fromARGB(255, 39, 150, 241);
-      }else if(rate>2 && dist>100 && dist<110){
+      } else if (rate > 2 && dist > 100 && dist < 110) {
         return Color.fromARGB(255, 218, 132, 3);
       }
-    } 
-    else {
+    } else {
       // logic for overflowing
-       if ( dist>90 && dist<100) {
+      if (dist > 90 && dist < 100) {
         return Colors.green;
-      }else if (dist>70 && dist<90) {
+      } else if (dist > 70 && dist < 90) {
         return Colors.yellow;
-      }else if (dist<70) {
+      } else if (dist < 70) {
         return Colors.red;
       }
       //  else if ((length - dist) - gutterheight < 2) {
@@ -197,8 +196,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   new FlutterMap(
                     options: new MapOptions(
                         //center: new LatLng(snapshot.data['location'].latitude,
-                            //snapshot.data['location'].longitude),
-                         center: new LatLng(19.0727, 72.8979),
+                        //snapshot.data['location'].longitude),
+                        center: new LatLng(19.0727, 72.8979),
                         minZoom: 10.0),
                     layers: [
                       new TileLayerOptions(
@@ -209,8 +208,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         new Marker(
                           width: 45.0,
                           height: 45.0,
-                         // point: new LatLng(snapshot.data['location'].latitude,
-                             // snapshot.data['location'].longitude),
+                          // point: new LatLng(snapshot.data['location'].latitude,
+                          // snapshot.data['location'].longitude),
                           point: new LatLng(19.0727, 72.8979),
                           builder: (context) => new Container(
                               child: IconButton(
@@ -242,14 +241,15 @@ class _MyHomePageState extends State<MyHomePage> {
                                 double.parse(i['longitude']['S'])),
                             builder: (context) => new Container(
                                 child: IconButton(
-                                
-                              icon: Icon(Icons.location_on,
-                              semanticLabel: 'Text to announce in accessibility modes',
+                              icon: Icon(
+                                Icons.location_on,
+                                semanticLabel:
+                                    'Text to announce in accessibility modes',
                               ),
                               color: color(double.parse(i['distance']['S']),
                                   double.parse(i['rate']['S'])),
                               iconSize: 45.0,
-                              
+
                               onPressed: () {
                                 //                   final snackBar = SnackBar(
                                 //   content: const Text('Your Current Location'),
@@ -265,7 +265,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 // // and use it to show a SnackBar.
                                 //  ScaffoldMessenger.of(context).showSnackBar(snackBar);
                               },
-                              
+
                               // tooltip: tooltip_text,
                             )),
                           ),
@@ -282,21 +282,17 @@ class _MyHomePageState extends State<MyHomePage> {
                         color: Colors.black.withOpacity(0.2),
                         height: 110.0,
                         width: 150.0,
-                        
                         child: ListView(
                           children: [
-                            const Text('Flooding', textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.bold)),
-                           
-                      
-                            _tile('Low', Icons.location_on,
-                                Colors.green),
-                            _tile('Medium', Icons.location_on,
-                                Colors.yellow),
-                            _tile(
-                                'Hign', Icons.location_on, Colors.red),
+                            const Text('Flooding',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            _tile('Low', Icons.location_on, Colors.green),
+                            _tile('Medium', Icons.location_on, Colors.yellow),
+                            _tile('Hign', Icons.location_on, Colors.red),
                           ],
                         )
-                        
+
                         // color: Colors.pink,
                         // height: 190.0,
                         // width: 150.0,
@@ -336,7 +332,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         // )
                         ),
                   ),
-                   Positioned(
+                  Positioned(
                     // right: 40.0,
                     // top: 40.0,
                     bottom: 10.0,
@@ -348,18 +344,18 @@ class _MyHomePageState extends State<MyHomePage> {
                         width: 150.0,
                         child: ListView(
                           children: [
-                            const Text('Prediction',textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold)),
-                           _tile(
-                                'No Flooding', Icons.location_on, Color.fromARGB(255, 248, 130, 169)),
+                            const Text('Prediction',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            _tile('No Flooding', Icons.location_on,
+                                Color.fromARGB(255, 248, 130, 169)),
                             _tile('Medium', Icons.location_on,
                                 Color.fromARGB(255, 39, 150, 241)),
                             _tile('High', Icons.location_on,
                                 Color.fromARGB(255, 218, 132, 3)),
-                            
-                            
                           ],
                         )
-                        
+
                         // color: Colors.pink,
                         // height: 190.0,
                         // width: 150.0,
